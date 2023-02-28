@@ -10,7 +10,7 @@ class FormView extends Component {
       answer: '',
       difficulty: 1,
       category: 1,
-      categories: {},
+      categories: [],
     };
   }
 
@@ -72,15 +72,15 @@ class FormView extends Component {
         >
           <label>
             Question
-            <input type='text' name='question' onChange={this.handleChange} />
+            <input type='text' className="input_fields" name='question' onChange={this.handleChange} />
           </label>
           <label>
             Answer
-            <input type='text' name='answer' onChange={this.handleChange} />
+            <input type='text' name='answer' className="input_fields" onChange={this.handleChange} />
           </label>
           <label>
             Difficulty
-            <select name='difficulty' onChange={this.handleChange}>
+            <select name='difficulty' className="drop_downs" onChange={this.handleChange}>
               <option value='1'>1</option>
               <option value='2'>2</option>
               <option value='3'>3</option>
@@ -90,11 +90,11 @@ class FormView extends Component {
           </label>
           <label>
             Category
-            <select name='category' onChange={this.handleChange}>
-              {Object.keys(this.state.categories).map((id) => {
+            <select name='category' className="drop_downs" onChange={this.handleChange}>
+              {this.state.categories.map((cat) => {
                 return (
-                  <option key={id} value={id}>
-                    {this.state.categories[id]}
+                  <option key={cat.id} value={cat.id}>
+                    {cat.type}
                   </option>
                 );
               })}
