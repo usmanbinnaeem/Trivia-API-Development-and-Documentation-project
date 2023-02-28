@@ -71,6 +71,137 @@ One note before you delve into your tasks: for each endpoint, you are expected t
 
 You will need to provide detailed documentation of your API endpoints including the URL, request parameters, and the response body. Use the example below as a reference.
 
+## Endpoints Documentation
+
+1. `GET '/categories'`
+
+- Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+- Request Arguments: None
+- Returns: An object with a key, `categories`, that contains an object of `id: category_string` key: value pairs. `success` with value `True` and `total_categories` with value `len(formatted_categories)`
+
+```json
+success: True,
+total_categories : len(formatted_categories),
+categories: 
+{
+  "1": "Science",
+  "2": "Art",
+  "3": "Geography",
+  "4": "History",
+  "5": "Entertainment",
+  "6": "Sports"
+}
+```
+
+2. `GET '/questions'`
+
+- Fetches a dictionary of all questions. which include id, question, answer, difficulty and category
+- Request Arguments: `page=page_no`
+- Returns: An object with a category, id, question, answer and difficulty. type of difficulty is `int`.
+
+```json
+success: True,
+total_questions : len(Question.query.all()),
+question: "what is udacity?",
+answer: "LMS".
+difficulty: 3,
+category: 4
+```
+
+3. `GET '/categories/2/questions'`
+
+- Fetches a dictionary of all questions by a specific id. which include id, question, answer, difficulty and category
+- Request Arguments: `id`
+- Returns: An object with a category, id, question, answer and difficulty. type of difficulty is `int`.
+
+```json
+success: True,
+total_questions : len(Question.query.all()),
+question: "what is udacity?",
+answer: "LMS".
+difficulty: 3,
+category: 4
+```
+
+4. `POST '/questions'`
+
+- Creates a new question. which include id, question, answer, difficulty and category
+- Request Arguments: `id, question, answer, difficulty, category`
+- Returns: An object with a category, id, question, answer and difficulty. type of difficulty is `int`.
+
+```json
+success: True,
+created: {
+  id: 4,
+  question: "what is udacity?"
+  answer: "LMS",
+  difficulty: 5,
+  category: 4
+}
+total_questions : len(Question.query.all()),
+question: "what is udacity?",
+answer: "LMS".
+difficulty: 3,
+category: 4
+```
+
+5. `DELETE '/questions/1'`
+
+- Deletes a question from the resource.
+- Request Arguments: `id`
+- Returns: An object that question is being deleted.
+
+```json
+success: True,
+deleted: {
+  id: 4,
+  question: "what is udacity?"
+  answer: "LMS",
+  difficulty: 5,
+  category: 4
+}
+total_questions : len(Question.query.all()),
+questions: [array of updated questions response]
+```
+
+6. `GET '/questions/search'`
+
+- Fetches a question based on a search query.
+- Request Arguments: `search`
+- Returns: An array that question's are being matched with searched string.
+
+```json
+success: True,
+deleted: {
+  id: 4,
+  question: "what is udacity?"
+  answer: "LMS",
+  difficulty: 5,
+  category: 4
+}
+total_questions : len(Question.query.all()),
+questions: [array of updated questions response],
+categories: [all the categories],
+current_category: None
+```
+
+7. `Post '/quizzes'`
+
+- Fetches a random question based on a category and filtered from old questions.
+- Request Arguments: `category_id and old_questions_array`
+- Returns: a new question.
+
+```json
+success: True,
+question: {
+  id: 4,
+  question: "what is udacity?"
+  answer: "LMS",
+  difficulty: 5,
+  category: 4
+}
+```
+
 ### Documentation Example
 
 `GET '/api/v1.0/categories'`
