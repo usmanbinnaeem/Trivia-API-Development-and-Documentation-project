@@ -100,12 +100,14 @@ categories:
 - Returns: An object with a category, id, question, answer and difficulty. type of difficulty is `int`.
 
 ```json
-success: True,
-total_questions : len(Question.query.all()),
-question: "what is udacity?",
-answer: "LMS".
-difficulty: 3,
-category: 4
+{
+"success": "True",
+"total_questions" : "len(Question.query.all())",
+"question": "what is udacity?",
+"answer": "LMS",
+"difficulty": 3,
+"category": 4
+}
 ```
 
 3. `GET '/categories/2/questions'`
@@ -115,12 +117,14 @@ category: 4
 - Returns: An object with a category, id, question, answer and difficulty. type of difficulty is `int`.
 
 ```json
-success: True,
-total_questions : len(Question.query.all()),
-question: "what is udacity?",
-answer: "LMS".
-difficulty: 3,
-category: 4
+{
+"success": "True",
+"total_questions" : "len(Question.query.all())",
+"question": "what is udacity?",
+"answer": "LMS",
+"difficulty": 3,
+"category": 4
+}
 ```
 
 4. `POST '/questions'`
@@ -130,19 +134,21 @@ category: 4
 - Returns: An object with a category, id, question, answer and difficulty. type of difficulty is `int`.
 
 ```json
-success: True,
-created: {
-  id: 4,
-  question: "what is udacity?"
-  answer: "LMS",
-  difficulty: 5,
-  category: 4
+{
+"success": "True",
+"created": {
+  "id": 4,
+  "question": "what is udacity?",
+  "answer": "LMS",
+  "difficulty": 5,
+  "category": 4
+},
+"total_questions" : "len(Question.query.all())",
+"question": "what is udacity?",
+"answer": "LMS",
+"difficulty": 3,
+"category": 4
 }
-total_questions : len(Question.query.all()),
-question: "what is udacity?",
-answer: "LMS".
-difficulty: 3,
-category: 4
 ```
 
 5. `DELETE '/questions/1'`
@@ -152,16 +158,18 @@ category: 4
 - Returns: An object that question is being deleted.
 
 ```json
-success: True,
-deleted: {
-  id: 4,
-  question: "what is udacity?"
-  answer: "LMS",
-  difficulty: 5,
-  category: 4
+{
+"success": "True",
+"deleted": {
+  "id": 4,
+  "question": "what is udacity?",
+  "answer": "LMS",
+  "difficulty": 5,
+  "category": 4
+},
+"total_questions" : "len(Question.query.all())",
+"questions": [array of updated questions response]
 }
-total_questions : len(Question.query.all()),
-questions: [array of updated questions response]
 ```
 
 6. `GET '/questions/search'`
@@ -171,18 +179,20 @@ questions: [array of updated questions response]
 - Returns: An array that question's are being matched with searched string.
 
 ```json
-success: True,
-deleted: {
-  id: 4,
-  question: "what is udacity?"
-  answer: "LMS",
-  difficulty: 5,
-  category: 4
+{
+"success": "True",
+"deleted": {
+  "id": 4,
+  "question": "what is udacity?",
+  "answer": "LMS",
+  "difficulty": 5,
+  "category": 4
 }
-total_questions : len(Question.query.all()),
-questions: [array of updated questions response],
-categories: [all the categories],
-current_category: None
+"total_questions" : "len(Question.query.all())",
+"questions": [array of updated questions response],
+"categories": [all the categories],
+"current_category": "None"
+}
 ```
 
 7. `Post '/quizzes'`
@@ -192,13 +202,15 @@ current_category: None
 - Returns: a new question.
 
 ```json
-success: True,
-question: {
-  id: 4,
-  question: "what is udacity?"
-  answer: "LMS",
-  difficulty: 5,
-  category: 4
+{
+"success": "True",
+"question": {
+  "id": 4,
+  "question": "what is udacity?",
+  "answer": "LMS",
+  "difficulty": 5,
+  "category": 4
+}
 }
 ```
 
