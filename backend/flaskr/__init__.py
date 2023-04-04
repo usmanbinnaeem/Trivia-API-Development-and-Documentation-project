@@ -5,6 +5,7 @@ from flask_cors import CORS
 import random
 
 from models import setup_db, Question, Category
+from settings import DB_NAME, DB_USER, DB_PASSWORD
 
 QUESTIONS_PER_PAGE = 10
 
@@ -111,12 +112,12 @@ def create_app(test_config=None):
 
         question.delete()
         selection = Question.query.order_by(Question.id).all()
-        current_questions = paginate_questions(request, selection)
+        # current_questions = paginate_questions(request, selection)
 
         return jsonify({
             'success': True,
             'deleted': question_id,
-            'questions': current_questions,
+            # 'questions': current_questions,
             'total_questions': len(Question.query.all())
         })
 
